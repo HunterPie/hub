@@ -43,13 +43,12 @@ export const EditInput: React.FC<EditInputProps> = ({
 
     return (
         <Button onClick={focusInput}
-                className={`flex p-1 rounded-md cursor-pointer bg-gray-200 border-gray-0 ${className}`}>
-            <input className="bg-gray-200 px-1 focus:outline-none text-white-500 cursor-pointer focus:text-white-200 placeholder-white-700 w-full"
+                className={`flex p-1 rounded-md cursor-pointer bg-gray-50 border-gray-0 ${className}`}>
+            <input className="bg-gray-50 px-1 focus:outline-none text-white-400 cursor-pointer focus:text-white-200 placeholder-white-500 w-full"
                 ref={inputRef}
                 placeholder="Test"/>
             <Image src={EditIcon}
-                    alt="edit"
-                    className=""/>
+                    alt="edit"/>
         </Button>
     )
 }

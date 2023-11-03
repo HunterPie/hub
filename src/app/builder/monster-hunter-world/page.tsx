@@ -47,7 +47,7 @@ export default function Builder() {
             label: "Waist",
             icon: WaistIcon,
             onClick: () => {
-
+                
             }
         },
         {
@@ -71,34 +71,49 @@ export default function Builder() {
         setSearching(true)
     }
 
-    return (
-        <div className="flex justify-center w-full h-screen bg-gray-600">
-            <div className="grid grid-cols-6 bg-gray-500 rounded-md my-10 mx-auto grid-rows-container gap-3 p-3 border-gray-0 border-solid border-thin">
-                <EditInput onSave={() => false}
-                            className="col-span-2 h-[40px]"/>
-                <div className="grid grid-cols-2 col-start-6">
-                    <Button className="flex col-start-2 items-center justify-center rounded-md cursor-pointer bg-gray-100"
-                            onClick={() => {}}>Export</Button>    
-                </div>            
+    const handleSearch = (text: string) => {
+        if (text.length <= 0)
+        {
+            setSearching(false)
+            return
+        }
 
-                {gearProperties.map((prop, idx) => {
-                    return (
-                        <div className="w-[230px] select-none row-start-2"
-                             key={`gear-component-${idx}`}>
-                            <GearSelectionComponent {...prop}
-                                                    onClick={onWeaponClick}
-                                                    key={`gear_${idx}`} />
-                            {[0, 1, 2].map(id => <JewelSelectionComponent id={id}
-                                                                          isAvailable={false}
-                                                                          onClick={() => {}}
-                                                                          key={`jewel_${id}`}/>)}
-                        </div>
-                    )
-                })}
+        console.log(text)
+    }
+
+    return (
+        <div className="flex justify-center w-full h-screen bg-gray-300">
+            <div className="bg-gray-100 rounded-md my-10 mx-auto gap-3 border-gray-0 border-solid border-thin">
+                <div className="grid grid-cols-6 col-span-6 bg-gray-200 p-3 rounded-t-md border-b-thin border-gray-50">
+                    <EditInput onSave={() => false}
+                                className="col-span-2 h-[40px]"/>
+                    <div className="grid grid-cols-2 col-start-6">
+                        <Button className="flex col-start-2 items-center justify-center rounded-md cursor-pointer bg-gray-100 border-gray-0 border-solid border-thin h-[40px] text-white-200"
+                                onClick={() => {}}>Export</Button>
+                    </div>
+                </div>
+                
+                <div className="grid grid-cols-6 p-3 gap-1">
+                    {gearProperties.map((prop, idx) => {
+                        return (
+                            <div className="min-w-[230px] select-none row-start-2"
+                                key={`gear-component-${idx}`}>
+                                <GearSelectionComponent {...prop}
+                                                        onClick={onWeaponClick}
+                                                        key={`gear_${idx}`} />
+                                {[0, 1, 2].map(id => <JewelSelectionComponent id={id}
+                                                                            isAvailable={false}
+                                                                            onClick={() => {}}
+                                                                            key={`jewel_${id}`}/>)}
+                            </div>
+                        )
+                    })}
+                </div>
             </div>
 
             <SearchModal isOpen={isSearching}
-                         onClose={() => setSearching(false)}/>
+                         onClose={() => setSearching(false)}
+                         onSubmit={handleSearch}/>
         </div>
     )
 }

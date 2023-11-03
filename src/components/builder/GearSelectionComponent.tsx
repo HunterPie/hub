@@ -18,12 +18,12 @@ export const GearSelectionComponent: React.FC<GearSelectionComponentProps> = ({
 }) => {
 
     return (
-        <Button className="bg-gray-400 border-gray-0 border-dashed border-2 rounded-lg cursor-pointer p-5"
+        <Button className="bg-gray-100 border-white-700 border-dashed border-2 rounded-lg cursor-pointer p-5"
                 onClick={onClick}>
             <Image src={icon}
                    alt={label}
                    className="mx-auto"/>
-            <h1 className="text-white-700 text-center font-sans font-semibold text-lg">{label}</h1>
+            <h1 className="text-white-600 text-center font-sans font-medium text-lg">{label}</h1>
         </Button>
     )
 }

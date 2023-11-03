@@ -29,7 +29,7 @@ export const JewelSelectionComponent: React.FC<JewelSelectionComponentProps> = (
     }
 
     return (
-        <Button className="bg-gray-400 border-gray-0 border-dashed border-2 rounded-lg cursor-pointer px-2 py-1 my-1"
+        <Button className="bg-gray-100 border-white-700 border-dashed border-2 rounded-lg cursor-pointer px-2 py-1 my-1"
              isDisabled={!isAvailable}
              onClick={() => onClick(id)}>
             {renderLocked()}

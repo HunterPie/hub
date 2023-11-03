@@ -12,10 +12,29 @@ const config: Config = {
                 "thin": "1px"
             },
             gridTemplateRows: {
-                "container": "50px minmax(900px, 1fr) 100px"
+                "container": "65px minmax(900px, 1fr) 100px"
+            },
+            animation: {
+                slideUp: "slideUp 250ms cubic-bezier(0, 0, 0.3, 1)",
+                slideDown: "slideDown 250ms cubic-bezier(0, 0, 0.3, 1) forwards"
+            },
+            keyframes: {
+                slideUp: {
+                    "0%": { transform: "translateY(+25%)", opacity: "0" },
+                    "100%": { transform: "translateY(0%)", opacity: "1" }
+                },
+                slideDown: {
+                    "0%": { transform: "translateY(0%)", opacity: "1" },
+                    "100%": { transform: "translateY(+25%)", opacity: "0" }
+                }
             }
         },
         colors: {
+            transparent: "transparent",
+            accent: {
+                start: "#4B8EEE",
+                end: "#10B9DE"
+            },
             gray: {
                 0: "#3A3E40",
                 50: "#24282B",
@@ -42,7 +61,7 @@ const config: Config = {
             }
         },
         fontFamily: {
-            sans: ['WorkSans', 'sans-serif']
+            sans: ['Work Sans', 'sans-serif']
         }
     },
     plugins: [],

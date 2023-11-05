@@ -19,25 +19,25 @@ export const Button: React.FC<ButtonProps> = ({
         const container = containerRef.current!;
         
         function handleRipple(event: MouseEvent) {
-            const previousEffect = container.getElementsByClassName("ripple");
+            const ripple = document.createElement("span")
+            const diameter = Math.max(container.clientWidth, container.clientHeight)
+            const radius = diameter / 2
+            ripple.style.width = ripple.style.height = `${diameter}px`
 
-            if (previousEffect.length >= 5) {
-                previousEffect[0].remove();
-            }
+            const rect = container.getBoundingClientRect()
 
-            const ripple = document.createElement("span");
-            const diameter = Math.max(container.clientWidth, container.clientHeight);
-            const radius = diameter / 2;
-            ripple.style.width = ripple.style.height = `${diameter}px`;
-
-            console.log(event.clientX)
-            console.log(container)
-
-            ripple.style.left = `${event.clientX - (container.offsetLeft + radius)}px`;
-            ripple.style.top = `${event.clientY - (container.offsetTop + radius)}px`;
+            ripple.style.left = `${event.clientX - (rect.left + radius)}px`
+            ripple.style.top = `${event.clientY - (rect.top + radius)}px`
             ripple.classList.add("relative", "ripple")
 
-            container.appendChild(ripple);
+            container.appendChild(ripple)
+
+            function removeRipple() {
+                ripple.removeEventListener("animationend", removeRipple)
+                container.removeChild(ripple)
+            }
+
+            ripple.addEventListener("animationend", removeRipple)
         }
 
         container.addEventListener("click", handleRipple)

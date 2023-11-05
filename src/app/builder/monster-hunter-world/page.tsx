@@ -12,6 +12,8 @@ import { JewelSelectionComponent } from "@/components/builder/JewelSelectionComp
 import { JewelLevel } from "@/core/game/gear/jewel";
 import { EditInput } from "@/components/primitive/input/EditInput";
 import { Button } from "@/components/primitive/buttons/Button";
+import { MHWSearchGearComponent } from "@/components/builder/MHWSearchGearComponent";
+import {id} from "postcss-selector-parser";
 
 interface GearProperties {
     label: string
@@ -77,8 +79,10 @@ export default function Builder() {
             setSearching(false)
             return
         }
+    }
 
-        console.log(text)
+    const handleSearchClick = (id: number) => {
+
     }
 
     return (
@@ -86,7 +90,7 @@ export default function Builder() {
             <div className="bg-gray-100 rounded-md my-10 mx-auto gap-3 border-gray-0 border-solid border-thin">
                 <div className="grid grid-cols-6 col-span-6 bg-gray-200 p-3 rounded-t-md border-b-thin border-gray-50">
                     <EditInput onSave={() => false}
-                                className="col-span-2 h-[40px]"/>
+                                className="col-span-2 h-[40px] font-medium"/>
                     <div className="grid grid-cols-2 col-start-6">
                         <Button className="flex col-start-2 items-center justify-center rounded-md cursor-pointer bg-gray-100 border-gray-0 border-solid border-thin h-[40px] text-white-200"
                                 onClick={() => {}}>Export</Button>
@@ -113,7 +117,20 @@ export default function Builder() {
 
             <SearchModal isOpen={isSearching}
                          onClose={() => setSearching(false)}
-                         onSubmit={handleSearch}/>
+                         onSubmit={handleSearch}>
+                {
+                    [0, 1, 2, 3, 4].map(id => {
+                        return (
+                            <MHWSearchGearComponent icon={""}
+                                                    name={"test"}
+                                                    rarity={12}
+                                                    jewels={[]}
+                                                    onClick={() => handleSearchClick(id)}
+                                                    key={`gear_${id}`}/>
+                        )
+                    })
+                }
+            </SearchModal>
         </div>
     )
 }

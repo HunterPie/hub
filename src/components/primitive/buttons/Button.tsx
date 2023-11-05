@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react"
+import React, { useEffect, useRef } from "react"
 
 interface ButtonProps {
     children?: any
@@ -29,9 +29,13 @@ export const Button: React.FC<ButtonProps> = ({
             const diameter = Math.max(container.clientWidth, container.clientHeight);
             const radius = diameter / 2;
             ripple.style.width = ripple.style.height = `${diameter}px`;
+
+            console.log(event.clientX)
+            console.log(container)
+
             ripple.style.left = `${event.clientX - (container.offsetLeft + radius)}px`;
             ripple.style.top = `${event.clientY - (container.offsetTop + radius)}px`;
-            ripple.classList.add("ripple");
+            ripple.classList.add("relative", "ripple")
 
             container.appendChild(ripple);
         }
@@ -44,10 +48,9 @@ export const Button: React.FC<ButtonProps> = ({
     }, [containerRef])
 
     return (
-        <div className={`overflow-hidden relative ${className}`}
+        <div className={`overflow-hidden relative ${isDisabled ? "disabled" : ""} ${className}`}
              ref={containerRef}
-             onClick={onClick}
-             disabled={isDisabled}>
+             onClick={onClick}>
             {children}
         </div>
     )

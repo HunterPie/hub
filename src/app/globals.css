@@ -39,8 +39,29 @@ span.ripple {
     }
 }
 
-div[disabled]
+div.disabled
 {
   pointer-events: none;
-  opacity: 0.7;
+  opacity: 0.5;
+}
+
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+    scrollbar-width: auto;
+    scrollbar-color: #3A3E40 transparent;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 7px;
+}
+
+*::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #3A3E40;
+    border-radius: 10px;
 }

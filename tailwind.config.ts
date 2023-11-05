@@ -8,6 +8,7 @@ const config: Config = {
     ],
     theme: {
         extend: {
+
             borderWidth: {
                 "thin": "1px"
             },
@@ -15,8 +16,10 @@ const config: Config = {
                 "container": "65px minmax(900px, 1fr) 100px"
             },
             animation: {
-                slideUp: "slideUp 250ms cubic-bezier(0, 0, 0.3, 1)",
-                slideDown: "slideDown 250ms cubic-bezier(0, 0, 0.3, 1) forwards"
+                slideUp: "slideUp 100ms cubic-bezier(0, 0, 0.7, 1)",
+                slideDown: "slideDown 100ms cubic-bezier(0, 0, 0.7, 1) forwards",
+                scaleDown: "scaleDown 200ms cubic-bezier(0, 0, 0.3, 1)",
+                scaleUp: "scaleUp 200ms cubic-bezier(0, 0, 0.3, 1) forwards",
             },
             keyframes: {
                 slideUp: {
@@ -26,6 +29,14 @@ const config: Config = {
                 slideDown: {
                     "0%": { transform: "translateY(0%)", opacity: "1" },
                     "100%": { transform: "translateY(+25%)", opacity: "0" }
+                },
+                scaleDown: {
+                    "0%": { transform: "scale(1.02)", opacity: "0" },
+                    "100%": { transform: "scale(1)", opacity: "1" }
+                },
+                scaleUp: {
+                    "0%": { transform: "scale(1)", opacity: "1" },
+                    "100%": { transform: "scale(1.02)", opacity: "0" }
                 }
             }
         },

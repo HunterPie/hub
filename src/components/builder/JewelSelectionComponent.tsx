@@ -1,4 +1,4 @@
-import { JewelLevel } from "@/core/game/gear/jewel"
+import { JewelLevel } from "@/core/game/gear/Jewel"
 import Image from "next/image"
 import { useRef, useEffect } from "react"
 import LockIcon from "@/icons/LockIcon.svg"

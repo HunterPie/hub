@@ -14,6 +14,17 @@ interface SearchModalProps {
     buildChild: (index: number) => ReactNode
 }
 
+
+const List = React.forwardRef<any, any>((props, ref) => {
+    return (
+        <div className="mr-1"
+             {...props}
+             ref={ref}>
+        </div>
+    )
+})
+List.displayName = "List"
+
 export const SearchModal: React.FC<SearchModalProps> = ({
     placeholder,
     isOpen,
@@ -78,12 +89,14 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                            placeholder={placeholder}
                            ref={searchInputRef}
                            onChange={handleTextChange}/>
-                    <Kbd text="ESC"/>
+                    <Kbd text="ESC"
+                         className="mr-1"/>
                 </div>
 
                 <div className="p-1 pr-0 max-h-[35dvh] min-h-[250px] bg-gray-200 overflow-x-hidden overflow-y-hidden">
                     <Virtuoso totalCount={childrenCount}
                               itemContent={buildChild}
+                              components={{ List }}
                               style={{ minHeight: "250px", height: "35dvh" }}/>
                 </div>
                 <div className="flex h-[30px] w-full border-t-thin border-gray-0 items-center justify-center text-sm font-sans text-white-500">

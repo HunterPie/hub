@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import MHWBuilderPage from "@/app/builder/monster-hunter-world/MHWBuilderPage";
+import MHWBuilderComponent from "@/app/builder/monster-hunter-world/components/MHWBuilderComponent";
 
 export const metadata: Metadata = {
     title: "HunterPie Hub | Monster Hunter World Builder",
@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 export default function Page() {
     return (
         <>
-            <MHWBuilderPage />
+            <MHWBuilderComponent />
         </>
     )
 }

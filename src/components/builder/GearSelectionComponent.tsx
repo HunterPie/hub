@@ -2,12 +2,12 @@
 import { useEffect, useRef } from "react"
 import Image from "next/image"
 import React from "react"
-import { StaticImport } from "next/dist/shared/lib/get-img-props"
 import { Button } from "../primitive/buttons/Button"
+import {Icon} from "@/components/image/icon";
 
 interface GearSelectionComponentProps {
     label: string,
-    icon: string | StaticImport
+    icon: Icon
     onClick: () => void
 }
 

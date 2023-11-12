@@ -1,4 +1,5 @@
-export enum JewelLevel {
+export enum Jewel {
+    None,
     Small,
     Medium,
     Big,

@@ -1,5 +1,7 @@
 import {IHttpService} from "@/core/http/IHttpService";
 import {Axios} from "axios";
+import {GetRequest} from "@/core/http/model/Request";
+import {Response} from "@/core/http/model/Response"
 
 export default class AxiosHttpService implements IHttpService {
 

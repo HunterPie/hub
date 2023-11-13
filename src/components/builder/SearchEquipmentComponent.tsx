@@ -98,10 +98,10 @@ export const SearchEquipmentComponent: React.FC<SearchEquipmentComponentProps> =
                     {
                         jewels.map((jewel, idx) => {
                             return (
-                                <div className="flex p-2 bg-gray-100 mx-1 border-thin border-gray-0 rounded-2xl">
+                                <div className="flex p-2 bg-gray-100 mx-1 border-thin border-gray-0 rounded-2xl"
+                                     key={idx}>
                                     <JewelIcon jewel={jewel}
-                                               className="w-[25px] h-[25px] self-center"
-                                               key={idx}/>
+                                               className="w-[25px] h-[25px] self-center"/>
                                 </div>
                             )
                         })

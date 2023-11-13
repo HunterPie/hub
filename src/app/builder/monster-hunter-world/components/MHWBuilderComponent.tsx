@@ -1,18 +1,20 @@
 'use client'
 import {BuildMakerComponent} from "@/components/builder/view/BuildMakerComponent";
-import {useEffect, useMemo, useState} from "react";
+import React, {useEffect, useMemo, useState} from "react";
 import {Equipment} from "@/core/entity/game/Equipment";
 import {Localization} from "@/core/entity/localization/Localization";
 import EquipmentCategoryModel from "@/components/builder/model/EquipmentCategoryModel";
 import ArmorIcon from "@/icons/ArmorIcon.svg"
 import {GearType} from "@/core/entity/game/GearType";
-import {MHWEquipmentAdapter} from "@/app/builder/monster-hunter-world/adapter/MHWEquipmentAdapter";
 import {Ailment} from "@/core/entity/game/Ailment";
-
-// TODO: Dependency injection
-const adapter = new MHWEquipmentAdapter()
+import {EquipmentAdapter} from "@/components/builder/adapter/EquipmentAdapter";
+import {GetStaticProps} from "next";
+import {container} from "tsyringe";
+import {MHW_EQUIPMENT_ADAPTER} from "@/app/builder/monster-hunter-world/di/Config";
 
 export default function MHWBuilderComponent() {
+    const equipmentAdapter = container.resolve<EquipmentAdapter>(MHW_EQUIPMENT_ADAPTER)
+
     const [armors, setArmors] = useState<Equipment[]>([])
     const [localization, setLocalization] = useState<Localization>({})
 
@@ -62,7 +64,7 @@ export default function MHWBuilderComponent() {
         <>
             <BuildMakerComponent categories={categories}
                                  localization={localization}
-                                 equipmentAdapter={adapter}/>
+                                 equipmentAdapter={equipmentAdapter}/>
         </>
     )
 }

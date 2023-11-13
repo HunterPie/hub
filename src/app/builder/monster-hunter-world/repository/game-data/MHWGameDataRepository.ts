@@ -5,17 +5,15 @@ import {Ailment} from "@/core/entity/game/Ailment";
 import {Resistance} from "@/core/entity/game/Resistance";
 import {Skill} from "@/core/entity/game/Skill";
 import {GearType} from "@/core/entity/game/GearType";
+import {Inject, Service} from "typedi";
+import {MHW_API_BASE_URL, MHW_DATA_REPOSITORY} from "@/app/builder/monster-hunter-world/di/Config";
 
 const DEFAULT_TIMEOUT = 10_000
 
+@Service(MHW_DATA_REPOSITORY)
 export default class MHWGameDataRepository implements IGameDataRepository {
-    private readonly _httpService: IHttpService
-    private readonly _baseUrl: string
-
-    constructor(httpService: IHttpService, baseUrl: string) {
-        this._httpService = httpService
-        this._baseUrl = baseUrl
-    }
+    @Inject() private readonly _httpService!: IHttpService
+    @Inject(MHW_API_BASE_URL) private readonly _baseUrl!: string
 
     async findAllArmors(): Promise<Equipment[]> {
         const response = await this._httpService.get({

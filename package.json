@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@heroicons/react": "^2.0.18",
     "axios": "^1.6.0",
     "babel-plugin-transform-typescript-metadata": "^0.3.2",
     "next": "14.0.0",

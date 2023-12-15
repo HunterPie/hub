@@ -20,12 +20,6 @@ export const EditInput: React.FC<EditInputProps> = ({
         if (event.key == 'Enter') {
             inputRef.current?.blur()
         }
-    } 
-
-    const handleSave = () => {
-        const input = inputRef.current?.value 
-        
-        onSave(input != undefined ? input : "")
     }
 
     const focusInput = () => {
@@ -33,13 +27,20 @@ export const EditInput: React.FC<EditInputProps> = ({
     }
 
     useEffect(() => {
-        inputRef.current?.addEventListener("keyup", handleEnter)
-        inputRef.current?.addEventListener("focusout", handleSave)
+        const handleSave = () => {
+            const input = inputRef.current?.value
+
+            onSave(input != undefined ? input : "")
+        }
+        
+        const reference = inputRef.current
+        reference?.addEventListener("keyup", handleEnter)
+        reference?.addEventListener("focusout", handleSave)
 
         return () => {
-            inputRef.current?.removeEventListener("keyup", handleEnter)
+            reference?.removeEventListener("keyup", handleEnter)
         }
-    }, [inputRef])
+    }, [inputRef, onSave])
 
     return (
         <Button onClick={focusInput}

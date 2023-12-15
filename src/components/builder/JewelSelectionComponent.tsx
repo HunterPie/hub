@@ -1,13 +1,13 @@
-import { JewelLevel } from "@/core/game/gear/Jewel"
 import Image from "next/image"
-import { useRef, useEffect } from "react"
 import LockIcon from "@/icons/LockIcon.svg"
 import { Button } from "../primitive/buttons/Button"
+import {Jewel} from "@/core/entity/game/Jewel";
+import React from "react";
 
 interface JewelSelectionComponentProps {
     id: number,
     isAvailable: boolean
-    level?: JewelLevel
+    level?: Jewel
     onClick: (targetId: number) => void
 }
 

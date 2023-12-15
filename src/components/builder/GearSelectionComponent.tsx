@@ -1,5 +1,4 @@
 'use client'
-import { useEffect, useRef } from "react"
 import Image from "next/image"
 import React from "react"
 import { Button } from "../primitive/buttons/Button"

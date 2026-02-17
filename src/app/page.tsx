@@ -48,10 +48,9 @@ export default function Home() {
 
             {/* Hero Section with Dynamic Background */}
             <section className="min-h-screen overflow-hidden relative flex animated-gradient-bg">
-                {/* Animated Orbs */}
-                <div className="orb orb-1"></div>
-                <div className="orb orb-2"></div>
-                <div className="orb orb-3"></div>
+                {/* Grid with Light Sweep */}
+                <div className="grid-bg"></div>
+                <div className="light-sweep"></div>
                 
                 <div className="relative z-10 flex flex-col justify-center md:px-40 px-6 max-w-5xl pt-24">
                     <div className="mb-8">
@@ -325,7 +324,7 @@ export default function Home() {
             {/* Getting Started Section */}
             <section className="py-24 bg-gray-500 relative overflow-hidden">
                 {/* Subtle background orb */}
-                <div className="absolute w-96 h-96 bg-violet-0/10 rounded-full blur-3xl top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+                <div className="absolute w-96 h-96 bg-blue-0/10 rounded-full blur-3xl top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
                 
                 <div className="max-w-6xl mx-auto px-6 md:px-40 relative z-10">
                     <div className="text-center mb-16">
@@ -349,7 +348,7 @@ export default function Home() {
                         </div>
 
                         <div className="text-center">
-                            <div className="w-14 h-14 bg-violet-0 text-white-0 rounded-lg flex items-center justify-center text-xl font-bold mx-auto mb-5">
+                            <div className="w-14 h-14 bg-blue-0 text-white-0 rounded-lg flex items-center justify-center text-xl font-bold mx-auto mb-5">
                                 2
                             </div>
                             <h3 className="text-lg font-semibold mb-3 text-white-50">Install</h3>
@@ -359,7 +358,7 @@ export default function Home() {
                         </div>
 
                         <div className="text-center">
-                            <div className="w-14 h-14 bg-green-0 text-white-0 rounded-lg flex items-center justify-center text-xl font-bold mx-auto mb-5">
+                            <div className="w-14 h-14 bg-blue-0 text-white-0 rounded-lg flex items-center justify-center text-xl font-bold mx-auto mb-5">
                                 3
                             </div>
                             <h3 className="text-lg font-semibold mb-3 text-white-50">Hunt</h3>

@@ -77,32 +77,6 @@ div.disabled
 }
 
 /* Dynamic Background Effects */
-@keyframes float {
-    0%, 100% {
-        transform: translate(0, 0) scale(1);
-    }
-    25% {
-        transform: translate(10px, -20px) scale(1.05);
-    }
-    50% {
-        transform: translate(-5px, 10px) scale(0.95);
-    }
-    75% {
-        transform: translate(-15px, -10px) scale(1.02);
-    }
-}
-
-@keyframes pulse-glow {
-    0%, 100% {
-        opacity: 0.4;
-        filter: blur(80px);
-    }
-    50% {
-        opacity: 0.6;
-        filter: blur(100px);
-    }
-}
-
 @keyframes gradient-shift {
     0% {
         background-position: 0% 50%;
@@ -115,42 +89,66 @@ div.disabled
     }
 }
 
-.orb {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(80px);
-    animation: float 20s ease-in-out infinite, pulse-glow 8s ease-in-out infinite;
-}
-
-.orb-1 {
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(142, 81, 255, 0.4) 0%, transparent 70%);
-    top: -200px;
-    left: -200px;
-    animation-delay: 0s;
-}
-
-.orb-2 {
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, rgba(75, 142, 238, 0.3) 0%, transparent 70%);
-    top: 30%;
-    right: -150px;
-    animation-delay: -5s;
-}
-
-.orb-3 {
-    width: 400px;
-    height: 400px;
-    background: radial-gradient(circle, rgba(255, 78, 205, 0.25) 0%, transparent 70%);
-    bottom: -100px;
-    left: 30%;
-    animation-delay: -10s;
+@keyframes sweep-position {
+    0% {
+        --sweep-x: -30%;
+        --sweep-y: -30%;
+    }
+    100% {
+        --sweep-x: 130%;
+        --sweep-y: 130%;
+    }
 }
 
 .animated-gradient-bg {
-    background: linear-gradient(-45deg, #13111C, #1a1625, #121416, #0E1011);
+    background: linear-gradient(-45deg, #0c1015, #101820, #0e151c, #0a0e12);
     background-size: 400% 400%;
     animation: gradient-shift 15s ease infinite;
+}
+
+/* Grid Background */
+.grid-bg {
+    position: absolute;
+    inset: 0;
+    background-image: 
+        linear-gradient(rgba(100, 150, 200, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(100, 150, 200, 0.06) 1px, transparent 1px);
+    background-size: 50px 50px;
+    mask-image: radial-gradient(ellipse 100% 100% at 50% 0%, black 40%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse 100% 100% at 50% 0%, black 40%, transparent 75%);
+}
+
+/* Light Sweep - Highlights Grid Lines */
+.light-sweep {
+    position: absolute;
+    inset: 0;
+    background-image: 
+        linear-gradient(rgba(180, 210, 255, 0.12) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(180, 210, 255, 0.12) 1px, transparent 1px);
+    background-size: 50px 50px;
+    mask-image: 
+        linear-gradient(45deg, transparent 0%, transparent 40%, white 48%, white 52%, transparent 60%, transparent 100%),
+        radial-gradient(ellipse 100% 100% at 50% 0%, black 40%, transparent 75%);
+    -webkit-mask-image: 
+        linear-gradient(45deg, transparent 0%, transparent 40%, white 48%, white 52%, transparent 60%, transparent 100%),
+        radial-gradient(ellipse 100% 100% at 50% 0%, black 40%, transparent 75%);
+    mask-composite: intersect;
+    -webkit-mask-composite: source-in;
+    mask-size: 300% 300%, 100% 100%;
+    -webkit-mask-size: 300% 300%, 100% 100%;
+    mask-position: -50% -50%, 0 0;
+    -webkit-mask-position: -50% -50%, 0 0;
+    animation: grid-sweep 10s ease-in-out infinite alternate;
+    pointer-events: none;
+}
+
+@keyframes grid-sweep {
+    0% {
+        mask-position: -50% -50%, 0 0;
+        -webkit-mask-position: -50% -50%, 0 0;
+    }
+    100% {
+        mask-position: 150% 150%, 0 0;
+        -webkit-mask-position: 150% 150%, 0 0;
+    }
 }

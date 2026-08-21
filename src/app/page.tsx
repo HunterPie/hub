@@ -15,8 +15,8 @@ import {
 } from "@heroicons/react/24/outline";
 
 export const metadata: Metadata = {
-    title: "HunterPie - The Ultimate Monster Hunter Overlay",
-    description: "Transform your Monster Hunter experience with HunterPie - a highly detailed, customizable overlay with damage meters, monster info, rich presence, and much more.",
+    title: "HunterPie - Monster Hunter Overlay & Companion",
+    description: "HunterPie is a clean, modern and robust overlay for Monster Hunter games",
     icons: "/logo.svg"
 }
 
@@ -54,20 +54,19 @@ export default function Home() {
                 
                 <div className="relative z-10 flex flex-col justify-center md:px-40 px-6 max-w-5xl pt-24">
                     <div className="mb-8">
-                        <span className="inline-block px-3 py-1 bg-green-500/20 text-green-0 border-thin border-green-500/40 rounded text-sm font-medium">
+                        <span className="inline-block px-3 py-1 bg-green-500/20 text-green-0 border-thin border-green-500/40 rounded-xl text-sm font-medium">
                             Free & Open Source
                         </span>
                     </div>
                     
                     <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white-0 leading-tight">
-                        The Ultimate<br/>
-                        Monster Hunter<br/>
+                        A Monster Hunter<br/>
                         <span className="bg-gradient-to-r from-blue-0 to-[#10B9DE] bg-clip-text text-transparent">Overlay</span>
                     </h1>
                     
                     <p className="text-lg text-white-200 mb-10 max-w-2xl leading-relaxed">
                         Elevate your hunting experience with real-time damage tracking, monster health displays, 
-                        Discord rich presence, and endless customization options.
+                        Discord rich presence, and many customization options.
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-4">
@@ -88,7 +87,7 @@ export default function Home() {
                 <div className="max-w-6xl mx-auto px-6 md:px-40">
                     <div className="text-center mb-16">
                         <h2 className="text-4xl font-bold text-white-0 mb-3">Supported Games</h2>
-                        <p className="text-white-400 text-lg">HunterPie works with your favorite Monster Hunter titles</p>
+                        <p className="text-white-400 text-lg">HunterPie works with many Monster Hunter titles</p>
                     </div>
                     
                     <div className="flex flex-col gap-8">
@@ -246,11 +245,11 @@ export default function Home() {
             </section>
 
             {/* Features Section */}
-            <section className="py-24 bg-gray-400 relative overflow-hidden">
+            <section className="py-24 bg-gray-400 relative overflow-hidden border-b-thin border-gray-50">
                 <div className="max-w-6xl mx-auto px-6 md:px-40">
                     <div className="text-center mb-16">
                         <h2 className="text-4xl font-bold mb-4 text-white-0">
-                            Powerful Features
+                            Features
                         </h2>
                         <p className="text-white-300 text-lg max-w-2xl mx-auto">
                             Everything you need to become a more effective hunter with detailed insights and beautiful overlays.
@@ -264,7 +263,7 @@ export default function Home() {
                             </div>
                             <h3 className="text-xl font-semibold mb-3 text-white-50">Monster Information</h3>
                             <p className="text-white-300 leading-relaxed text-sm">
-                                Track monster health, ailments, part damage, and enrage states with beautiful, customizable displays.
+                                Track monster health, ailments, part damage, and enrage states with fully customizable displays.
                             </p>
                         </div>
 
@@ -304,7 +303,7 @@ export default function Home() {
                             </div>
                             <h3 className="text-xl font-semibold mb-3 text-white-50">Discord Rich Presence</h3>
                             <p className="text-white-300 leading-relaxed text-sm">
-                                Show off your hunting progress with detailed Discord status including quest info, location, and party details.
+                                Show off your hunting progress to your friends with the built-in Discord integration.
                             </p>
                         </div>
 
@@ -315,55 +314,6 @@ export default function Home() {
                             <h3 className="text-xl font-semibold mb-3 text-white-50">Full Customization</h3>
                             <p className="text-white-300 leading-relaxed text-sm">
                                 Personalize every aspect of your overlay with themes, custom positions, colors, and widget configurations.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Getting Started Section */}
-            <section className="py-24 bg-gray-500 relative overflow-hidden">
-                {/* Subtle background orb */}
-                <div className="absolute w-96 h-96 bg-blue-0/10 rounded-full blur-3xl top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
-                
-                <div className="max-w-6xl mx-auto px-6 md:px-40 relative z-10">
-                    <div className="text-center mb-16">
-                        <h2 className="text-4xl font-bold mb-4 text-white-0">
-                            Get Started in Minutes
-                        </h2>
-                        <p className="text-white-300 text-lg">
-                            Setting up HunterPie is quick and easy.
-                        </p>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-                        <div className="text-center">
-                            <div className="w-14 h-14 bg-blue-0 text-white-0 rounded-lg flex items-center justify-center text-xl font-bold mx-auto mb-5">
-                                1
-                            </div>
-                            <h3 className="text-lg font-semibold mb-3 text-white-50">Download</h3>
-                            <p className="text-white-400 text-sm">
-                                Get the latest version from NexusMods or GitHub releases. Completely free to use.
-                            </p>
-                        </div>
-
-                        <div className="text-center">
-                            <div className="w-14 h-14 bg-blue-0 text-white-0 rounded-lg flex items-center justify-center text-xl font-bold mx-auto mb-5">
-                                2
-                            </div>
-                            <h3 className="text-lg font-semibold mb-3 text-white-50">Install</h3>
-                            <p className="text-white-400 text-sm">
-                                Extract and run the executable. HunterPie will automatically recognize your game.
-                            </p>
-                        </div>
-
-                        <div className="text-center">
-                            <div className="w-14 h-14 bg-blue-0 text-white-0 rounded-lg flex items-center justify-center text-xl font-bold mx-auto mb-5">
-                                3
-                            </div>
-                            <h3 className="text-lg font-semibold mb-3 text-white-50">Hunt</h3>
-                            <p className="text-white-400 text-sm">
-                                Launch your game and start hunting! The overlay will automatically display and track your progress.
                             </p>
                         </div>
                     </div>
